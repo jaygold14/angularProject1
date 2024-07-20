@@ -1,0 +1,30 @@
+<!--<p>recipes works!</p>-->
+<!--<h2>{{ recipe.name | uppercase }} Details</h2>-->
+<!--
+<div><span>id: </span>{{recipe.id}}</div>
+<div><span>name: </span>{{recipe.name}}</div>
+-->
+<!-- <div>
+    <label for="name">Recipe name: </label>
+    <input id="name" [(ngModel)]="recipe.name" placeholder="name">
+</div> -->
+<h2>My Recipes</h2>
+<ul class="recipes">
+  <li *ngFor="let recipe of recipes">
+    <button [class.selected]="recipe === selectedRecipe" type="button" (click)="onSelect(recipe)">
+      <span class="id">{{recipe.id}}</span>
+      <span class="name">{{recipe.name}}</span>
+    </button>
+  </li>
+</ul>
+
+<app-recipe-detail [recipe]="selectedRecipe"></app-recipe-detail>
+
+<!-- <div *ngIf="selectedRecipe">
+  <h2>{{selectedRecipe.name | uppercase}} Details</h2>
+  <div>id: {{selectedRecipe.id}}</div>
+  <div>
+    <label for="recipe-name">Recipe name: </label>
+    <input id="recipe-name" [(ngModel)]="selectedRecipe.name" placeholder="name">
+  </div>
+</div> -->
