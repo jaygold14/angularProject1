@@ -1,3 +1,4 @@
+import { MessageService } from './../message.service';
 // import { RECIPES } from './../mock-recipes';
 import { Component , Directive } from '@angular/core';
 import { NgFor, NgIf, UpperCasePipe } from '@angular/common';
@@ -40,7 +41,7 @@ export class RecipesComponent {
     //     this.recipes = service.getCourses();
     // }
 
-    constructor(private recipeService: RecipeService) {
+    constructor(private recipeService: RecipeService, private messageService: MessageService) {
     }
 
     // recipe: Recipe = {
@@ -51,10 +52,16 @@ export class RecipesComponent {
     selectedRecipe?: Recipe;
     onSelect(recipe: Recipe): void {
         this.selectedRecipe = recipe;
+        this.messageService.add(`RecipesComponent: Selected recipe id=${recipe.id}`);
     }
 
+    // getRecipes(): void {
+    //     this.recipes = this.recipeService.getRecipes();
+    // }
+
     getRecipes(): void {
-        this.recipes = this.recipeService.getRecipes();
+        this.recipeService.getRecipes()
+            .subscribe(recipes => this.recipes = recipes);
     }
 
     ngOnInit(): void {
