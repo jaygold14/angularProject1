@@ -7,6 +7,7 @@ import { FormsModule, NgModel } from '@angular/forms';
 import { RecipeDetailComponent } from '../recipe-detail/recipe-detail.component';
 import { RecipeService } from '../recipe.service';
 import { Recipe } from '../recipe';
+import { RouterLink, RouterModule } from '@angular/router';
 @Component({
     standalone: true,
     imports: [
@@ -15,7 +16,9 @@ import { Recipe } from '../recipe';
         FormsModule,
         UpperCasePipe,
         NgIf,
-        RecipeDetailComponent
+        RecipeDetailComponent,
+        RouterLink,
+        RouterModule
     ],
     selector: 'recipes',
     //providers: [RecipeService],
@@ -49,11 +52,11 @@ export class RecipesComponent {
     //     name: 'Rustic Sourdough Loaf'
     // }
 
-    selectedRecipe?: Recipe;
-    onSelect(recipe: Recipe): void {
-        this.selectedRecipe = recipe;
-        this.messageService.add(`RecipesComponent: Selected recipe id=${recipe.id}`);
-    }
+    // selectedRecipe?: Recipe;
+    // onSelect(recipe: Recipe): void {
+    //     this.selectedRecipe = recipe;
+    //     this.messageService.add(`RecipesComponent: Selected recipe id=${recipe.id}`);
+    // }
 
     // getRecipes(): void {
     //     this.recipes = this.recipeService.getRecipes();

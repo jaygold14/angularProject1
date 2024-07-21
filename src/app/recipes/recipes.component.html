@@ -8,7 +8,7 @@
     <label for="name">Recipe name: </label>
     <input id="name" [(ngModel)]="recipe.name" placeholder="name">
 </div> -->
-<h2>My Recipes</h2>
+<!-- <h2>My Recipes</h2>
 <ul class="recipes">
   <li *ngFor="let recipe of recipes">
     <button [class.selected]="recipe === selectedRecipe" type="button" (click)="onSelect(recipe)">
@@ -16,9 +16,18 @@
       <span class="name">{{recipe.name}}</span>
     </button>
   </li>
+</ul> -->
+<h2>My Recipes</h2>
+
+<ul class="recipes">
+  <li *ngFor="let recipe of recipes">
+    <a routerLink="/detail/{{recipe.id}}">
+      <span class="badge">{{recipe.id}}</span> {{recipe.name}}
+    </a>
+  </li>
 </ul>
 
-<app-recipe-detail [recipe]="selectedRecipe"></app-recipe-detail>
+<!-- <app-recipe-detail [recipe]="selectedRecipe"></app-recipe-detail> -->
 
 <!-- <div *ngIf="selectedRecipe">
   <h2>{{selectedRecipe.name | uppercase}} Details</h2>
