@@ -20,4 +20,10 @@ export class RecipeService {
     return recipes;
   }
 
+  getRecipe(id: number): Observable<Recipe> {
+    const recipe = RECIPES.find(h => h.id === id)!;
+    this.messageService.add(`RecipeService: fetched hero id=${id}`);
+    return of(recipe);
+  }
+
 }
