@@ -13,6 +13,7 @@ import { NgFor, NgIf, UpperCasePipe } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgModel } from '@angular/forms';
 import { RecipeDetailComponent } from '../recipe-detail/recipe-detail.component';
+import { RecipeSearchComponent } from '../recipe-search/recipe-search.component';
 //import { RecipeService } from '../recipe.service';
 //import { Recipe } from '../recipe';
 //import { RouterLink, RouterModule } from '@angular/router';
@@ -30,7 +31,8 @@ import { RecipeDetailComponent } from '../recipe-detail/recipe-detail.component'
     NgIf,
     RecipeDetailComponent,
     RouterLink,
-    RouterModule
+    RouterModule,
+    RecipeSearchComponent
   ]
 })
 export class DashboardComponent implements OnInit {

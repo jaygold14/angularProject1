@@ -71,7 +71,19 @@ export class RecipesComponent {
         this.getRecipes();
     }
 
+    add(name: string): void {
+        name = name.trim();
+        if (!name) { return; }
+        this.recipeService.addRecipe({ name } as Recipe)
+            .subscribe(recipe => {
+                this.recipes.push(recipe);
+            })
+    }
     // getTitle() {
     //     return this.title;
     // }
+    delete(recipe: Recipe): void {
+        this.recipes = this.recipes.filter(h => h !== recipe);
+        this.recipeService.deleteRecipe(recipe.id).subscribe();
+      }
 }

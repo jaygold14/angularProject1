@@ -36,4 +36,11 @@ export class RecipeDetailComponent {
   goBack(): void {
     this.location.back();
   }
+
+  save(): void {
+    if (this.recipe) {
+      this.recipeService.updateRecipe(this.recipe)
+        .subscribe(() => this.goBack());
+    }
+  }
 }
